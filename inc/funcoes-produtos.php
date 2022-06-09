@@ -135,7 +135,7 @@ function lerDetalhes(mysqli $conexao, $idPost):array {
 
 
 /* Usada em search.php */
-function busca(mysqli $conexao, string $termo):array {
+function buscaProduto(mysqli $conexao, string $termo):array {
     $sql = "SELECT  id, data, titulo, resumo FROM posts WHERE titulo LIKE '%$termo%' OR resumo LIKE '%$termo%'  OR texto LIKE  '%$termo%' ORDER BY data DESC";
         
     $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));

@@ -2,7 +2,7 @@
 require "inc/funcoes-posts.php";
 require "inc/cabecalho.php";
 $termo = filter_input(INPUT_GET, 'q', FILTER_SANITIZE_SPECIAL_CHARS);
-$resultado = busca($conexao, $termo);
+// $resultado = buscaProduto($conexao, $termo);
 ?>
 
 <div class="row bg-white rounded shadow my-1 py-4">

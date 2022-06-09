@@ -16,33 +16,43 @@
 <body>
 
 
-  <header id="topo" class="sticky-top border-bottom">
+  <header id="" class="">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container">
+    <nav class="">
+      <div class="">
         <h1>
-          <a class="navbar-brand" href="index.php">Microblog</a>
+          <a class="" href="index.php">StarGold</a>
         </h1>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <button class="" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class=""></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="index.php">
+        <div class="" id="navbarSupportedContent">
+          <ul class="">
+            <li class="">
+              <a class="" href="index.php">
                 Home <span class="sr-only">(current)</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="admin/index.php">Área Administrativa</a>
+            <li class="">
+              <a class="" href="index.php">
+                Produtos <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="">
+              <a class="" href="index.php">
+                Categorias<span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="">
+              <a class="" href="admin/index.php">Login</a>
             </li>
           </ul>
 
           <form class="form-inline my-2 my-lg-0" action="search.php" method="get">
             <input class="form-control mr-sm-2" type="search" placeholder="Pesquise aqui" aria-label="Search" name="q">
-            <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">OK</button>
+            <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Pesquisar</button>
           </form>
 
         </div>
