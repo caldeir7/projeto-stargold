@@ -2,7 +2,7 @@
 require "conecta.php";
 
 /* Usada em post-insere.php */
-function inserirPost(mysqli $conexao, string $titulo, string $texto, string $resumo, $imagem, string $fabricanteID){
+function inserirPost(mysqli $conexao, string $nome, int $preco, string $resumo, $imagem, string $fabricanteID){
     $sql = "INSERT INTO produtos(nome_produto,preco_produto,quantidade, descricao, imagem, fabricante_id) VALUES('$titulo', '$texto', '$resumo', '$imagem', '$fabricanteID')";
     
     mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
