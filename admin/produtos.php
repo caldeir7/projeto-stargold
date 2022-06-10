@@ -1,9 +1,9 @@
 <?php 
-require "../inc/funcoes-posts.php";
+require "../inc/funcoes-produtos.php";
 require "../inc/cabecalho-admin.php"; 
 
 
-$lerPostS = lerPosts($conexao,$_SESSION['id'], $_SESSION['tipo']);
+$lerPostS = lerProduto($conexao,$_SESSION['id'], $_SESSION['tipo']);
 $quantidade = count($lerPostS);
 
 ?>      

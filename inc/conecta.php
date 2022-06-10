@@ -2,7 +2,7 @@
 $servidor = "localhost"; 
 $usuario = "root";	
 $senha = ""; 
-$banco = "progweb_microblog_guilhermes"; 
+$banco = "vendas_stargold"; 
 
 $conexao = mysqli_connect($servidor, $usuario, $senha, $banco);
 

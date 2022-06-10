@@ -1,26 +1,78 @@
+html{
+  font-size: 14px;
+}
 body {
   /* Solução Rodapé (Parte 1) */
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background-image: url(../imagens/textura.png);
+  /* background-image: url(../imagens/textura.png); */
   background-attachment: fixed;
 }
 
 /* Solução Rodapé (Parte 2) */
 main { flex: 1; }
 
-.card > .card-link { color: #181819; }
-.card > .card-link:hover { color: #0056b3; }
-
-#admin .nav-link {
-  color: white;
+.nav-gold h1{
+  font-size: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-transform: uppercase;
+  color: orange;
 }
 
-#admin .nav-link:hover,#admin .nav-link:focus {
-  background-color: white;
-  color: black;
+.topo{
+  margin: 0;
 }
+.nav-gold{
+  width: 100%;
+  background-color: #eeee;
+}
+
+.nav-gold-container{
+  width: 99%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+.icones{
+  /* display: none; */
+  padding: 2px;
+}
+/* .god-links{
+  
+} */
+
+.links-menu{
+  display: none;
+  /* display: flex; */
+  /* list-style: none; */
+  /* align-items: center; */
+}
+
+.links-menu a{
+  padding: 5px 10px;
+  font-size: 1.1rem;
+}
+
+.qqq{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+/* .links-menu.aberto{
+
+} */
+
+@media screen and (min-width: 836px){
+  .nav-gold-container{
+    flex-direction: row;
+  }
+}
+
+
+
+
 
 #admin .navbar {
   padding-top: 0;

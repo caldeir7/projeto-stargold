@@ -2,25 +2,19 @@
 require "conecta.php";
 
 /* Usada em post-insere.php */
-function inserirPost(mysqli $conexao, string $titulo, string $texto, string $resumo, $imagem, int $idUsuarioLogado){
-    $sql = "INSERT INTO posts(titulo,texto, resumo, imagem, usuario_id) VALUES('$titulo', '$texto', '$resumo', '$imagem', '$idUsuarioLogado')";
+function inserirPost(mysqli $conexao, string $titulo, string $texto, string $resumo, $imagem, string $fabricanteID){
+    $sql = "INSERT INTO produtos(nome_produto,preco_produto,quantidade, descricao, imagem, fabricante_id) VALUES('$titulo', '$texto', '$resumo', '$imagem', '$fabricanteID')";
     
     mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 } // fim inserirPost
 
 
 
-/* Usada em posts.php */
-function lerPosts(mysqli $conexao, int $idUsuarioLogado, string $tipoUsuarioLogado ):array {
+/* Usada em produto.php */
+function lerProduto(mysqli $conexao):array {
     // Se o tipo de usuario for admin
-    if ($tipoUsuarioLogado == 'admin') {
-        // SQL que traga todos os posts
-        $sql = "SELECT posts.id, posts.titulo, posts.data, usuarios.nome AS autor from posts INNER JOIN usuarios ON posts.usuario_id = usuarios.id ORDER BY data DESC";
+        $sql = "SELECT produtos.id, produtos.nome_produto, produtos.preco_produto, fabricantes.nome AS fabricante from posts INNER JOIN fabricantes ON produtos.fabricante_id = fabricantes.id ORDER BY data DESC";
         
-    } else {
-        // Senão, SQL que traga os posts somente do editor
-        $sql = "SELECT id, titulo, data FROM posts WHERE usuario_id = $idUsuarioLogado ORDER BY data";
-    }
     
     $resultado = mysqli_query($conexao,$sql) or die(mysqli_error($conexao));
     $posts = [];
@@ -32,7 +26,7 @@ function lerPosts(mysqli $conexao, int $idUsuarioLogado, string $tipoUsuarioLoga
 
 
 /* Usada em post-atualiza.php */
-function lerUmPost(mysqli $conexao,int $idPost, int $idUsuarioLogado, string $tipodeUsuariologado ):array {    
+function lerUmProduto(mysqli $conexao,int $idPost, int $idUsuarioLogado, string $tipodeUsuariologado ):array {    
     /* Se o usuario logado for admin então pode carregar os dados de qualquer post de qualquer usuario */
     if($tipodeUsuariologado == 'admin'){
         $sql = "SELECT id, titulo, texto, resumo, imagem, usuario_id FROM posts WHERE id = $idPost";

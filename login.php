@@ -43,7 +43,7 @@ if(isset($_POST['entrar'])){
       if(password_verify($senha, $usuario['senha'])){
         //4) Então inicia o login para área administrativa
         login($usuario['id'], $usuario['nome'], $usuario['email'], $usuario['tipo']);
-        header("location:admin/index.php");
+        header("location:admin/index-admin.php");
       } else {
         //4) Se a senha estiver errada redireciona para login e cria um parametro indicando  que a sneha esta incorreta
         header("location:login.php?senha_incorreta");
@@ -73,6 +73,8 @@ if(isset($_POST['entrar'])){
         <label for="senha">Senha:</label>
         <input class="form-control" type="password" id="senha" name="senha">
       </div>
+
+      <p><a href="admin/cadastro.php">Não tem Conta? Crie uma agora.</a></p>
 
       <button class="btn btn-primary btn-lg" name="entrar" type="submit">Entrar</button>
 

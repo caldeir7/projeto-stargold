@@ -1,6 +1,9 @@
 <?php 
 require "../inc/cabecalho-admin.php"; 
-require "../inc/funcoes-posts.php";
+require "../inc/funcoes-produtos.php";
+require "../inc/funcoes-fabricantes.php";
+
+$dadosFabricantes = lerFabricantes($conexao);
 
 if(isset($_POST['inserir'])){
   $titulo = filter_input(INPUT_POST, 'titulo', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -30,19 +33,31 @@ if(isset($_POST['inserir'])){
       <form enctype="multipart/form-data"  class="mx-auto w-75" action="" method="post" id="form-inserir" name="form-inserir">
 
         <div class="form-group">
-          <label for="titulo">Título:</label>
-          <input class="form-control" required type="text" id="titulo" name="titulo" >
+          <label for="titulo">Nome Produto:</label>
+          <input class="form-control" required type="text" id="nproduto" name="nproduto" >
         </div>
 
         <div class="form-group">
-          <label for="texto">Texto:</label>
-          <textarea class="form-control" required name="texto" id="texto" cols="50" rows="10"></textarea>
+          <select name="" id="">
+            <option value=""></option>
+            <option value="">Tiffany</option>
+            <option value="">Swarovisk</option>
+          </select>
         </div>
 
         <div class="form-group">
-          <label for="resumo">Resumo (máximo de 300 caracteres):</label>
+          <label for="titulo">Preco:</label>
+          <input class="form-control" required type="number" id="preco" name="preco" min="0" max="1000" step="0.1" >
+        </div>
+        <div class="form-group">
+          <label for="titulo">Quantidade:</label>
+          <input class="form-control" required type="number" id="quantidade" name="quantidade" min="0" max="20" step="1" >
+        </div>
+
+        <div class="form-group">
+          <label for="resumo">Descrição: (máximo de 300 caracteres):</label>
           <span id="maximo" class="badge badge-danger">0</span>
-          <textarea class="form-control" required name="resumo" id="resumo" cols="50" rows="3" maxlength="300"></textarea> 
+          <textarea class="form-control" required name="descricao" id="descricao" cols="50" rows="3" maxlength="300"></textarea> 
         </div>
                 
         <div class="form-group">
