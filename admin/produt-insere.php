@@ -1,34 +1,36 @@
 <?php 
 require "../inc/cabecalho-admin.php"; 
-require "../inc/funcoes-produtos.php";
 require "../inc/funcoes-fabricantes.php";
 
 $dadosFabricantes = lerFabricantes($conexao);
 
 if(isset($_POST['inserir'])){
-  $titulo = filter_input(INPUT_POST, 'titulo', FILTER_SANITIZE_SPECIAL_CHARS);
-  $texto = filter_input(INPUT_POST, 'texto', FILTER_SANITIZE_SPECIAL_CHARS);
-  $resumo = filter_input(INPUT_POST, 'resumo', FILTER_SANITIZE_SPECIAL_CHARS);
+  require "../inc/funcoes-produtos.php";
+  $nome = filter_input(INPUT_POST, 'nproduto', FILTER_SANITIZE_SPECIAL_CHARS);
+  $preco = filter_input(INPUT_POST, 'preco', FILTER_SANITIZE_NUMBER_INT);
+  $quantidade = filter_input(INPUT_POST, 'quantidade', FILTER_SANITIZE_NUMBER_INT);
+  $descricao = filter_input(INPUT_POST, 'descricao', FILTER_SANITIZE_SPECIAL_CHARS);
+  $fabricanteID = filter_input(INPUT_POST,'fabricante', FILTER_SANITIZE_SPECIAL_CHARS);
   
 
   //upload de imagem (blob arquivos binário .pdf .jpg. exe)
   // Obtendo dados do arquivo enviado
   $imagem = $_FILES['imagem'];
-  echo "<pre>" ;
-    var_dump($imagem);
-  echo "</pre>";
-  die();
+  // echo "<pre>" ;
+  //   var_dump($imagem);
+  // echo "</pre>";
+  // die();
   //Função upload (responsavel por enviar o arquivo para o hd do servidor)
-  // upload($imagem);
+  upload($imagem);
   //Função inserirpost(atenção: mandaremos apenas o name da imagem)
-  // inserirPost($conexao, $titulo, $texto, $resumo, $imagem['name'], $_SESSION['id']);
-  header("location:posts.php");
+  inserirProduto($conexao, $nome, $preco, $quantidade, $descricao ,$imagem['name'], $fabricanteID);
+  header("location:index-admin.php");
 }
 ?>
        
   <div class="row">
     <article class="col-12 bg-white rounded shadow my-1 py-4">
-      <h2 class="text-center">Inserir Post</h2>
+      <h2 class="text-center">Inserir Produto</h2>
           <!-- Adicionamos o atributo enctype para habilitar o suporte de envio de arquivos via formulario -->
       <form enctype="multipart/form-data"  class="mx-auto w-75" action="" method="post" id="form-inserir" name="form-inserir">
 
@@ -38,10 +40,13 @@ if(isset($_POST['inserir'])){
         </div>
 
         <div class="form-group">
-          <select name="" id="">
+          <select name="fabricante" id="fabricante">
             <option value=""></option>
-            <option value="">Tiffany</option>
-            <option value="">Swarovisk</option>
+            <?php foreach($dadosFabricantes as $fabricante){ ?>
+
+              <option value="<?=$fabricante['id']?>"><?=$fabricante['nome']?></option>
+
+            <?php } ?>
           </select>
         </div>
 
@@ -55,7 +60,7 @@ if(isset($_POST['inserir'])){
         </div>
 
         <div class="form-group">
-          <label for="resumo">Descrição: (máximo de 300 caracteres):</label>
+          <label for="descricao">Descrição: (máximo de 300 caracteres):</label>
           <span id="maximo" class="badge badge-danger">0</span>
           <textarea class="form-control" required name="descricao" id="descricao" cols="50" rows="3" maxlength="300"></textarea> 
         </div>

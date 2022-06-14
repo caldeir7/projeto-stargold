@@ -74,7 +74,7 @@ if(isset($_POST['entrar'])){
         <input class="form-control" type="password" id="senha" name="senha">
       </div>
 
-      <p><a href="admin/cadastro.php">Não tem Conta? Crie uma agora.</a></p>
+      <p><a href="cadastro.php">Não tem Conta? Crie uma agora.</a></p>
 
       <button class="btn btn-primary btn-lg" name="entrar" type="submit">Entrar</button>
 

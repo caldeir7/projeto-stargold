@@ -1,21 +1,20 @@
 <?php
 require "../inc/cabecalho-admin.php"; 
-require "../inc/funcoes-posts.php";
+require "../inc/funcoes-produtos.php";
+require "../inc/funcoes-fabricantes.php";
+$dadosFabricantes = lerFabricantes($conexao);
 // $posts = lerPosts($conexao, $_SESSION['id'], $_SESSION['tipo']);
 
-$idPost = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
+$idProduto = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 $idUsuarioLogado = $_SESSION['id'];
-$tipodeUsuariologado = $_SESSION['tipo'];
-$posts = lerUmPost($conexao, $idPost, $idUsuarioLogado, $tipodeUsuariologado);
 
-// echo "<pre>";
-//   var_dump($posts);
-// echo "</pre>";
 
 if(isset($_POST['atualizar'])){
-  $titulo = filter_input(INPUT_POST, 'titulo', FILTER_SANITIZE_SPECIAL_CHARS);
-	$texto = filter_input(INPUT_POST, 'texto', FILTER_SANITIZE_EMAIL);
-	$resumo = filter_input(INPUT_POST, 'resumo', FILTER_SANITIZE_SPECIAL_CHARS);
+  $nome = filter_input(INPUT_POST, 'nproduto', FILTER_SANITIZE_SPECIAL_CHARS);
+  $preco = filter_input(INPUT_POST, 'preco', FILTER_SANITIZE_NUMBER_INT);
+  $quantidade = filter_input(INPUT_POST, 'quantidade', FILTER_SANITIZE_NUMBER_INT);
+  $descricao = filter_input(INPUT_POST, 'descricao', FILTER_SANITIZE_SPECIAL_CHARS);
+  $fabricanteID = filter_input(INPUT_POST,'fabricante', FILTER_SANITIZE_SPECIAL_CHARS);
   // $imagemExistente = filter_input(INPUT_POST, 'imagem-existente' FILTER_SANITIZE_SPECIAL_CHARS);
 
   // Se o campo imagem estiver vazio, significa que o usuário nao quer trocar de imagem
@@ -29,7 +28,7 @@ if(isset($_POST['atualizar'])){
   // Somente depois do processo de upload(se necessário), chamaremos a função de atualizarPost
 
 
-  atualizarPost($conexao, $idPost, $idUsuarioLogado, $tipodeUsuariologado, $titulo, $texto, $resumo, $imagem );
+  // atualizarProduto($conexao, $idPost, $titulo, $texto, $resumo, $imagem );
   
   
   header("location:posts.php");
@@ -39,30 +38,45 @@ if(isset($_POST['atualizar'])){
        
 <div class="row">
   <article class="col-12 bg-white rounded shadow my-1 py-4">
-    <h2 class="text-center">Atualizar Post</h2>
+    <h2 class="text-center">Atualizar Produtos</h2>
 
     <form enctype="multipart/form-data" class="mx-auto w-75" action="" method="post" id="form-atualizar" name="form-atualizar"> 
         
-      <div class="form-group">
-        <label for="titulo">Título:</label>
-        <input value="<?=$posts['titulo']?>" class="form-control" type="text" id="titulo" name="titulo" required>
-      </div>
-      
-      <div class="form-group">
-        <label for="texto">Texto:</label>
-        <textarea class="form-control" name="texto" id="texto" cols="50" rows="10" required><?=$posts['texto']?></textarea>
-      </div>
-      
-      <div class="form-group">
-        <label for="resumo">Resumo (máximo de 300 caracteres):</label>
-        <span id="maximo" class="badge badge-success">0</span>
-        <textarea  class="form-control" name="resumo" id="resumo" cols="50" rows="3" required maxlength="300"><?=$posts['resumo']?></textarea>
-      </div>
+    <div class="form-group">
+          <label for="titulo">Nome Produto:</label>
+          <input class="form-control" required type="text" id="nproduto" name="nproduto" >
+        </div>
+
+        <div class="form-group">
+          <select name="fabricante" id="fabricante">
+            <option value=""></option>
+            <?php foreach($dadosFabricantes as $fabricante){ ?>
+
+              <option value="<?=$fabricante['id']?>"><?=$fabricante['nome']?></option>
+
+            <?php } ?>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="titulo">Preco:</label>
+          <input class="form-control" required type="number" id="preco" name="preco" min="0" max="1000" step="0.1" >
+        </div>
+        <div class="form-group">
+          <label for="titulo">Quantidade:</label>
+          <input class="form-control" required type="number" id="quantidade" name="quantidade" min="0" max="20" step="1" >
+        </div>
+
+        <div class="form-group">
+          <label for="descricao">Descrição: (máximo de 300 caracteres):</label>
+          <span id="maximo" class="badge badge-danger">0</span>
+          <textarea class="form-control" required name="descricao" id="descricao" cols="50" rows="3" maxlength="300"></textarea> 
+        </div>
       
       <div class="form-group">
         <label for="imagem-existente">Imagem do post:</label>
         <!-- campo somente leitura, meramente informativo -->
-        <input value="<?=$posts['imagem']?>" class="form-control" type="text" id="imagem-existente" name="imagem-existente" readonly>
+        <input value="<?=$produto['imagem']?>" class="form-control" type="text" id="imagem-existente" name="imagem-existente" readonly>
       </div>            
           
       <div class="form-group">

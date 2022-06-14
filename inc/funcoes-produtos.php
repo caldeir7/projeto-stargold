@@ -1,9 +1,9 @@
 <?php
 require "conecta.php";
 
-/* Usada em post-insere.php */
-function inserirPost(mysqli $conexao, string $nome, int $preco, string $resumo, $imagem, string $fabricanteID){
-    $sql = "INSERT INTO produtos(nome_produto,preco_produto,quantidade, descricao, imagem, fabricante_id) VALUES('$titulo', '$texto', '$resumo', '$imagem', '$fabricanteID')";
+/* Usada em produt-insere.php */
+function inserirProduto(mysqli $conexao, string $nome, int $preco, int $quantidade, string $descricao ,$imagem, int $fabricanteID){
+    $sql = "INSERT INTO produtos(produtos.nome_produto, produtos.preco_produto, produtos.quantidade, produtos.descricao, produtos.imagem, fabricante_id) VALUES('$nome', '$preco', '$quantidade', '$descricao','$imagem', '$fabricanteID')";
     
     mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 } // fim inserirPost
@@ -13,31 +13,25 @@ function inserirPost(mysqli $conexao, string $nome, int $preco, string $resumo, 
 /* Usada em produto.php */
 function lerProduto(mysqli $conexao):array {
     // Se o tipo de usuario for admin
-        $sql = "SELECT produtos.id, produtos.nome_produto, produtos.preco_produto, fabricantes.nome AS fabricante from posts INNER JOIN fabricantes ON produtos.fabricante_id = fabricantes.id ORDER BY data DESC";
+        $sql = "SELECT produtos.id, produtos.nome_produto AS produto , produtos.preco_produto, produtos.quantidade, produtos.descricao, produtos.imagem, fabricantes.nome AS fabricante from produtos INNER JOIN fabricantes ON produtos.fabricante_id = fabricantes.id ";
         
     
-    $resultado = mysqli_query($conexao,$sql) or die(mysqli_error($conexao));
-    $posts = [];
-    while($post = mysqli_fetch_assoc($resultado)){
-        array_push($posts, $post);
+    $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+    $produtos = [];
+    while($produto = mysqli_fetch_assoc($resultado)){
+        array_push($produtos, $produto);
     }
-    return $posts;
+    return $produtos;
 } // fim lerPosts
 
 
 /* Usada em post-atualiza.php */
-function lerUmProduto(mysqli $conexao,int $idPost, int $idUsuarioLogado, string $tipodeUsuariologado ):array {    
-    /* Se o usuario logado for admin então pode carregar os dados de qualquer post de qualquer usuario */
-    if($tipodeUsuariologado == 'admin'){
-        $sql = "SELECT id, titulo, texto, resumo, imagem, usuario_id FROM posts WHERE id = $idPost";
-    }else{
-    //Caso ontrario significa que é um usuário editor portanto só poderar carregar somento os dados dos seus posts
-        $sql = "SELECT titulo, texto, resumo, imagem, usuario_id FROM posts WHERE id = $idPost AND usuario_id = $idUsuarioLogado";
-    }
+function lerUmProduto( $conexao, $id) {    
+    // $sql = "SELECT id, nome_produto, preco_produto, quantidade, descricao, imagem, fabricante_id FROM produtos WHERE id = $id";
 
-	$resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
-
-    return mysqli_fetch_assoc($resultado); 
+	// $resultado = mysqli_query($conexao, $sql);
+    
+    // return $resultado;
 } // fim lerUmPost
 
 
@@ -104,15 +98,15 @@ function formataData(string $data):string{
 /*** Funções para a área PÚBLICA do site ***/
 
 /* Usada em index.php */
-function lerTodosOsPosts(mysqli $conexao):array {
-    $sql = "SELECT id, data, titulo, texto, resumo, imagem FROM posts ORDER BY data DESC";
+function lerTodosOsProdutos(mysqli $conexao):array {
+    $sql = "SELECT id, nome_produto, preco_produto, quantidade, descricao, imagem FROM produtos";
     
     $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
-    $posts = [];
-    while( $post = mysqli_fetch_assoc($resultado) ){
-        array_push($posts, $post);
+    $produtos = [];
+    while( $produto = mysqli_fetch_assoc($resultado) ){
+        array_push($produtos, $produto);
     }
-    return $posts; 
+    return $produtos; 
 } // fim lerTodosOsPosts
 
 

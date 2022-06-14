@@ -60,6 +60,10 @@ main { flex: 1; }
   flex-direction: row-reverse;
 }
 
+#imgggs{
+  max-width: 80%;
+}
+
 /* .links-menu.aberto{
 
 } */

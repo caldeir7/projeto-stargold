@@ -2,17 +2,16 @@
 require "../inc/funcoes-produtos.php";
 require "../inc/cabecalho-admin.php"; 
 
-
-$lerPostS = lerProduto($conexao,$_SESSION['id'], $_SESSION['tipo']);
-$quantidade = count($lerPostS);
+$lerProdutos = lerProduto($conexao,$_SESSION['id'], $_SESSION['tipo']);
+$quantidade = count($lerProdutos);
 
 ?>      
     
 <div class="row">
   <article class="col-12 bg-white rounded shadow my-1 py-4">
-    <h2 class="text-center">Posts <span class="badge badge-primary"><?=$quantidade?></span></h2>
+    <h2 class="text-center">Produtos <span class="badge badge-primary"><?=$quantidade?></span></h2>
     <p class="lead text-right">
-      <a class="btn btn-primary" href="post-insere.php">Inserir novo post</a>
+      <a class="btn btn-primary" href="produt-insere.php">Inserir novo Produto</a>
     </p>
             
     <div class="table-responsive"> 
@@ -21,32 +20,27 @@ $quantidade = count($lerPostS);
         <thead class="thead-light">
           <tr>
             <th>Título</th>
-            <th>Data</th>
-            <?php if($_SESSION['tipo'] == 'admin') { ?>
-            <th>Autor</th>
-            <?php } ?>
+            <th>Imagem</th>
+            <th>Fabricante</th>
             <th colspan="2" class="text-center">Operações</th>
           </tr>
         </thead>
       
         <tbody>
-<?php foreach($lerPostS as $leRpost) { ?>
+<?php foreach($lerProdutos as $lerProduto) { ?>
           <tr>
-            <td><?=$leRpost['titulo']?></td>
-            <td> <?=formataData($leRpost['data'])?> </td>
-
-            <?php if($_SESSION['tipo'] == 'admin') { ?>
-            <td> <?=$leRpost['autor']?></td>
-            <?php } ?>
+            <td><?=$lerProduto['produto']?></td>
+            <td id="imgggs"><?=$lerProduto['imagem']?></td>
+            <td> <?=$lerProduto['fabricante']?></td>
             <td class="text-center">
               <a class="btn btn-warning btn-sm" 
-              href="post-atualiza.php?id=<?=$leRpost['id']?>">
+              href="produt-atualiza.php?id=<?=$lerProduto['id']?>">
                   Atualizar
               </a>
             </td>
             <td class="text-center">
               <a class="btn btn-danger btn-sm excluir"
-              href="post-exclui.php?id=<?=$leRpost['id']?>">
+              href="produt-exclui.php?id=<?=$lerProduto['id']?>">
                   Excluir
               </a>
             </td>

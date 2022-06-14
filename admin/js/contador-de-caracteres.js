@@ -3,7 +3,7 @@
 
 // Elementos a serem manipulados
 const spanMaximo = document.querySelector("#maximo");
-const textResumo = document.querySelector("#resumo");
+const textResumo = document.querySelector("#descricao");
 
 // Obtendo e exibindo a quantidade atual de caracteres do resumo (página post-atualiza.php)
 let quantidadeAtual = textResumo.value.length;
