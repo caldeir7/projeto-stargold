@@ -38,6 +38,7 @@ main { flex: 1; }
 .icones{
   /* display: none; */
   padding: 2px;
+  background-color: blue;
 }
 /* .god-links{
   
@@ -46,27 +47,33 @@ main { flex: 1; }
 .links-menu{
   display: none;
   /* display: flex; */
-  /* list-style: none; */
+  list-style: none;
   /* align-items: center; */
 }
+.links-menu li{
+  list-style: none;
+}
 
-.links-menu a{
+.nav-gold-container .links-menu.aberto a{
+  display: block;
   padding: 5px 10px;
   font-size: 1.1rem;
+  background-color: aquamarine;
 }
 
 .qqq{
   display: flex;
   flex-direction: row-reverse;
 }
-
+.links-menu.aberto{
+  display: flex;
+  flex-direction: column;
+}
 #imgggs{
   max-width: 80%;
 }
 
-/* .links-menu.aberto{
 
-} */
 
 @media screen and (min-width: 836px){
   .nav-gold-container{
