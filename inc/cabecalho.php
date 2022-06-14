@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   
- <link rel="stylesheet" href="css/style.css">
+ <link rel="stylesheet" href="css/stargold.css">
 </head>
 
 <body>
@@ -21,34 +21,41 @@
 
     <nav class="nav-gold">
       <div class="nav-gold-container">
-        <h1>
-          <a class="../index.php" href="index.php">StarGold</a>
+
+        <div>
+          <a href="carrinho.php"><span><img src="imagens/carrinho-de-compras.png" alt=""></span></a>
+        </div>
+
+        <h1 id="h1">
+          <a class="" href="index.php">StarGold</a>
         </h1>
+
+
 
         <div class="god-links" id="">
           <h2><a class="icones" href=""><i class="fa fa-bars"></i></a></h2>
-          <ul class="links-menu aberto">
-            <li class="">
-              <a class="" href="index.php">
-                Home <span class="sr-only">(current)</span>
+          <ul class="links-menu">
+            <li >
+              <a href="index.php">
+                Home 
               </a>
             </li>
-            <li class="">
-              <a class="" href="index.php">
-                Produtos <span class="sr-only">(current)</span>
+            <li >
+              <a href="produtos.php">
+                Produtos
               </a>
             </li>
-            <li class="">
-              <a class="" href="index.php">
-                Categorias<span class="sr-only">(current)</span>
+            <li >
+              <a href="index.php">
+                Categorias
               </a>
             </li>
-            <li class="">
-              <a class="" href="admin/index.php">Login</a>
+            <li >
+              <a href="login.php">Login</a>
             </li>
-            <form class="form-inline my-2 my-lg-0 qqq" action="search.php" method="get">
-                <input class="form-control mr-sm-2" type="search" placeholder="Pesquise aqui" aria-label="Search" name="q">
-              <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Pesquisar</button>
+            <form class=" qqq" action="search.php" method="get">
+                <input class="" type="search" placeholder="Pesquise aqui" aria-label="Search" name="q">
+              <button class="" type="submit">Pesquisar</button>
             </form>
 
           </ul>

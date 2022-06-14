@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Luxurious+Roman&family=Neonderthaw&family=Raleway&display=swap');
+
+*, *::after, *::before{
+  box-sizing: border-box;
+}
+html{
+  font-size: 14px;
+}
+body {
+  /* Solução Rodapé (Parte 1) */
+  display: flex;
+  margin: 0;
+  padding: 2px;
+  min-height: 100vh;
+  flex-direction: column;
+  /* background-image: url(../imagens/textura.png); */
+  /* background-attachment: fixed; */
+}
+
+/* Solução Rodapé (Parte 2) */
+main { flex: 1; }
+img{
+  max-width: 100%;
+}
+.cabecalho-gold{
+  margin: 0;
+  border-bottom: 1px solid black;
+  /* background-color: aqua; */
+}
+
+.nav-gold-container{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+a{
+  text-decoration: none;
+}
+#h1 a{
+  color: orange;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-family: 'Raleway', sans-serif;
+}
+
+
+.links-menu{
+  display: none;
+  list-style: none;
+}
+
+
+
+@media screen and (min-width: 836px){
+  
+}
+
+
+
+
+
+
+
+/* #admin .custom-file-label::after {
+  content: "Procurar" !important;
+} */
