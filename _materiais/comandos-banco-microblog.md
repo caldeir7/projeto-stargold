@@ -4,23 +4,27 @@
 CREATE DATABASE progweb_microblog_guilhermes CHARACTER SET "utf8mb4";
 
 ## 2) Criar tabela de usuários
-CREATE TABLE usuarios(
+CREATE TABLE clientes(
 	id SMALLINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(45) NOT NULL,
-	email VARCHAR(40) NOT NULL UNIQUE, -- garante que o e-mail será único
+	cliente_nome VARCHAR(45) NOT NULL,
+    cliente_endereco VARCHAR(100) NOT NULL,
+    cliente_cidade VARCHAR(45) NOT NULL,
+    cliente_cep VARCHAR(45) NOT NULL,
+    cliente_telefone VARCHAR(14) NOT NULL,
+    cliente_email VARCHAR(40) NOT NULL UNIQUE,
+    cliente_cpf VARCHAR(15) NOT NULL UNIQUE,
   	senha VARCHAR(255) NOT NULL,
-	tipo ENUM('admin','editor') NOT NULL
-);
+	cliente_sexo ENUM('masculino','feminino') NOT NULL,
+    cliente_nascimento VARCHAR(45) NOT NULL,
+    pedidos_idpedido INT NOT NULL
+)
 
-## 3) Criar tabela de posts
-CREATE TABLE posts(
+## 3) Criar tabela de pedidos
+CREATE TABLE pedidos(
 	id SMALLINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	data DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, -- pega a data atual no momento
-	titulo VARCHAR(100) NOT NULL,
-	texto TEXT NOT NULL,
-	resumo TEXT NOT NULL,
-  	imagem VARCHAR(40) NOT NULL, -- aqui guardaremos somente o nome.ext da imagem
-  	usuario_id SMALLINT NOT NULL
+	clientes_id INT NOT NULL,
+	produtos_id INT NOT NULL,
 );
 
 ## 4) Criar chave estrangeira para relacionamento entre as tabelas

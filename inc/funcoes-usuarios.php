@@ -3,7 +3,7 @@ require "conecta.php";
 
 // Função inserirUsuario: usada em usuario-insere.php
 function inserirUsuario(mysqli $conexao, string $nome,  string $email, string $senha, string $tipo){
-    $sql = "INSERT INTO usuarios(nome,email,senha,tipo) 
+    $sql = "INSERT INTO usuario_admin(nome,email,senha,tipo) 
         VALUES('$nome', '$email','$senha','$tipo')";
     
     mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
@@ -25,7 +25,7 @@ function codificaSenha(string $senha):string{
 
 // Função lerUsuarios: usada em usuarios.php
 function lerUsuarios(mysqli $conexao):array{
-        $sql = "SELECT id, nome, email, tipo FROM usuarios ORDER BY nome";
+        $sql = "SELECT id, nome, email, tipo FROM usuario_admin ORDER BY nome";
 
         $query = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 
@@ -44,7 +44,7 @@ function lerUsuarios(mysqli $conexao):array{
 
 // Função excluirUsuario: usada em usuario-exclui.php
 function excluirUsuario(mysqli $conexao, int $id){
-        $sql= "DELETE FROM usuarios WHERE id= $id";
+        $sql= "DELETE FROM clientes WHERE id= $id";
         //Chamando a função que ira retorna os dados de um fabricante
         mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
     
@@ -57,7 +57,7 @@ function excluirUsuario(mysqli $conexao, int $id){
 
 // Função lerUmUsuario: usada em usuario-atualiza.php
 function lerUmUsuario(mysqli $conexao, int $id):array{
-    $sql = "SELECT id, nome, email, tipo, senha FROM usuarios WHERE id = $id";
+    $sql = "SELECT id, nome, email, tipo, senha FROM usuario_admin WHERE id = $id";
     
     $query = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 
@@ -90,7 +90,7 @@ function verificaSenha(string $senhaFormulario, string $senhaBanco):string{
 
 // Função atualizarUsuario: usada em usuario-atualiza.php
 function atualizarUsuario(mysqli $conexao, int $id, string $nome, string $email, string $senha, string $tipo){
-    $sql= "UPDATE usuarios SET nome='$nome', email ='$email', senha = '$senha', tipo = '$tipo' WHERE id = $id ";
+    $sql= "UPDATE usuario_admin SET nome='$nome', email ='$email', senha = '$senha', tipo = '$tipo' WHERE id = $id ";
 
    mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 }
@@ -102,7 +102,7 @@ function atualizarUsuario(mysqli $conexao, int $id, string $nome, string $email,
 
 // Função buscarUsuario: usada em login.php
 function buscarUsuario(mysqli $conexao, string $email){
-    $sql = "SELECT id, nome, email, tipo, senha FROM usuarios WHERE email = '$email' ";
+    $sql = "SELECT id, nome, email, tipo, senha FROM usuario_admin WHERE email = '$email' ";
 
     $query = mysqli_query($conexao, $sql);
 
@@ -112,6 +112,10 @@ function buscarUsuario(mysqli $conexao, string $email){
     return mysqli_fetch_assoc($query); */
 }
 // fim buscarUsuario
+
+//Função Busca Cliente
+
+//Fim Função Busca Cliente
 
 
 

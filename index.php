@@ -1,7 +1,7 @@
 <?php
 require "inc/cabecalho.php";
-require "inc/funcoes-produtos.php";
-$allProdutos = lerProdutoLimit($conexao);
+// require "inc/funcoes-produtos.php";
+// $allProdutos = lerProdutoLimit($conexao);
 // echo "<pre>";
 // var_dump($allPosts);
 // echo "</pre>";

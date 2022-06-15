@@ -6,9 +6,9 @@ botao.addEventListener("click", function(event){
     linksMenu.classList.toggle("aberto");
 
     if ( linksMenu.classList.contains("aberto")) {
-        icone.innerHTML = "<i class=fa fa-bars></i>";
+        icone.innerHTML = "<i class='fa fa-times' style='color:orange'></i>";
     } else {
-        icone.innerHTML = "<i class=fa fa-bars></i>";
+        icone.innerHTML = "<i class='fa fa-bars' style='color:black'></i>";
     }
 
 });

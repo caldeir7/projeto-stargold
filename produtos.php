@@ -1,8 +1,8 @@
 <?php  
     require "inc/cabecalho.php";
-    require "inc/funcoes-produtos.php";
+//     require "inc/funcoes-produtos.php";
 
-$allProdutos = lerTodosOsProdutos($conexao);
+// $allProdutos = lerTodosOsProdutos($conexao);
 
 
 ?>

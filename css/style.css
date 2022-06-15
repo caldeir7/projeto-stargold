@@ -15,7 +15,7 @@ body{
 img{
     max-width: 100%;
 }
-body, h1{
+body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     margin: 0;
@@ -37,6 +37,7 @@ h1 a{
     color: orange;
     padding: 10px;
     font-family: 'Raleway', sans-serif;
+    list-style: none;
 
 }
 
@@ -44,7 +45,7 @@ h1 a:hover{
     font-size: 2rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: orange;
+    color: black;
     padding: 10px;
     font-family: 'Raleway', sans-serif;
 
@@ -57,6 +58,7 @@ header{
     top: 0;
     border-radius: 3px;
     z-index: 1000;
+    border-bottom: 1px solid orange;
 }
 .container-nav{
     display: flex;
@@ -64,7 +66,7 @@ header{
     justify-content: space-between;
     align-items: center;
     background-color: #ffffff;
-    height: 10vh;
+    height: 12vh;
 }
 
 nav h2{
@@ -89,10 +91,13 @@ main{
 .links-menu{
     list-style: none;
     display: none;
+    margin: 0;
+    padding: 0;
 }
 
 .links-menu a{
-    height: 20px;
+    color: #23232e;
+    height: 40px;
 }
 
 .links-menu li a:hover{
@@ -105,21 +110,44 @@ main{
 .links-menu li{
     letter-spacing: 2px;
     margin-left: 0px;
+    height: 50px;
 }
 
 .links-menu.aberto{
     position: absolute;
     display: flex;
-    left: 0;
+    left: -2px;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
-    width: 50vw ;
-    height: 100vh;
-    background-color: #23232e;
+    width: 70vw ;
+    height: 591px;
+    background-color: #eee;
     transition: 1s;
+    top: 80px;
     
 }
+.qqq{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.qqq button{
+    width: 40px;
+    height: 35px;
+    padding: 10px;
+    margin-left: 3px;
+    display: flex;
+    align-items: center;
+}
+.qqq input{
+    border-radius: 4px;
+    border: none;
+    padding: 10px;
+}
+
+
+
 
 /* Fim CSS Menu e Caeçalho */
 
@@ -337,6 +365,40 @@ h3{
 }
 
 /* Fim CSS Login PHP */
+
+
+.carrinho-cont{
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    margin: 2px;
+    height: 300px;
+}
+.carrinho-cont img{
+    width: 100%;
+}
+.carrinho-cont article{
+    border-radius: 1px solid black;
+    display: flex;
+    height: 190px;
+    border: 1px solid;
+    margin: 10px;
+    padding: 10px;
+}
+
+.carrinho-cont {
+    border-radius: 1px solid black;
+    display: flex;
+}
+.img-carrin{
+    border: 1px solid black;
+    width: 50%;
+    height: 100px;
+}
+
+.carrinho-produto{
+    border-radius: 1px;
+}
 
 footer{
     background-color: #23232e;
