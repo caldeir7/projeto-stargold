@@ -5,18 +5,18 @@
 // $produtoDetails = lerDetalhes($conexao, $idPost);
 
 ?>
-<div class="row">
+<div class="">
 	<!-- INÍCIO ROW -->
 
-	<article class="col-12 bg-white rounded shadow my-1 py-4">
+	<article class="">
 		<h2>Nome</h2>
-		<p class="font-weight-light">
+		<p class="">
 			<time>
 				data
 			</time> - <span></span>
 		</p>
 
-		<img src="" alt="Imagem de destaque do post" class="float-left pr-2 img-fluid">
+		<img src="" alt="Imagem de destaque do post" class="">
 
 		<p class="textoos"> 
 			 nl2br descrição 

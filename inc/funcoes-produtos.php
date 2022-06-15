@@ -9,6 +9,22 @@ function inserirProduto(mysqli $conexao, string $nome, int $preco, int $quantida
 } // fim inserirPost
 
 
+//Usada em index.php
+function lerProdutoLimit(mysqli $conexao):array {
+    // Se o tipo de usuario for admin
+        $sql = "SELECT produtos.id, produtos.nome_produto AS produto , produtos.preco_produto, produtos.quantidade, produtos.descricao, produtos.imagem, fabricantes.nome AS fabricante from produtos INNER JOIN fabricantes ON produtos.fabricante_id = fabricantes.id LIMIT 4  ";
+        
+    
+    $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+    $produtosLimit = [];
+    while($produto = mysqli_fetch_assoc($resultado)){
+        array_push($produtosLimit, $produto);
+    }
+    return $produtosLimit;
+}
+
+//Fim função produto limt
+
 
 /* Usada em produto.php */
 function lerProduto(mysqli $conexao):array {
@@ -26,12 +42,11 @@ function lerProduto(mysqli $conexao):array {
 
 
 /* Usada em post-atualiza.php */
-function lerUmProduto( $conexao, $id) {    
-    // $sql = "SELECT id, nome_produto, preco_produto, quantidade, descricao, imagem, fabricante_id FROM produtos WHERE id = $id";
+function lerUmProduto( $conexao, $idProduto) {    
+    $sql = "SELECT id, nome_produto, preco_produto, quantidade, descricao, imagem, fabricante_id FROM produtos WHERE id = $idProduto";
 
-	// $resultado = mysqli_query($conexao, $sql);
-    
-    // return $resultado;
+	$query = mysqli_query($conexao, $sql);
+    return $query;
 } // fim lerUmPost
 
 

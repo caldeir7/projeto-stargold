@@ -5,19 +5,19 @@ $termo = filter_input(INPUT_GET, 'q', FILTER_SANITIZE_SPECIAL_CHARS);
 // $resultado = buscaProduto($conexao, $termo);
 ?>
 
-<div class="row bg-white rounded shadow my-1 py-4">
-  <h2 class="col-12 font-weight-light">
-    Você procurou por <span class="badge badge-dark"><?=$termo?></span>
-    e obteve <span class="badge badge-info"><?=count($resultado)?> resultados</span>
+<div class="">
+  <h2 class="">
+    Você procurou por <span class=""><?=$termo?></span>
+    e obteve <span class=""><?=count($resultado)?> resultados</span>
   </h2>
 
   <!-- INÍCIO Card -->
 <?php foreach($resultado as $post){ ?>
-  <div class="col-12 my-1">
-    <article class="card">
-      <div class="card-body">
-        <h3 class="card-title font-weight-light"><?=$post['titulo']?></h3>
-        <p class="card-text">
+  <div class="">
+    <article class="">
+      <div class="">
+        <h3 class=""><?=$post['titulo']?></h3>
+        <p class="">
           <time>
             <?=formataData($post['data'])?>
           </time> -

@@ -18,7 +18,7 @@ $pagina = basename($_SERVER['PHP_SELF']);
   <meta charset="utf-8">
   <title>Admin | Microblog</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/stargold.css">
 </head>
 
 <body id="admin">
@@ -26,7 +26,7 @@ $pagina = basename($_SERVER['PHP_SELF']);
   <header id="topo" class="mb-2">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
       <div class="container">
-        <h1><a class="navbar-brand" href="index.php">Admin | StarGold</a></h1>
+        <h1><a class="navbar-brand" href="../index.php">Admin | StarGold</a></h1>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
           <span class="navbar-toggler-icon"></span>

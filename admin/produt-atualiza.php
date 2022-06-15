@@ -5,8 +5,10 @@ require "../inc/funcoes-fabricantes.php";
 $dadosFabricantes = lerFabricantes($conexao);
 // $posts = lerPosts($conexao, $_SESSION['id'], $_SESSION['tipo']);
 
-$idProduto = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+$id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 $idUsuarioLogado = $_SESSION['id'];
+
+$oneProduto = lerUmProduto($conexao, $idProduto);
 
 
 if(isset($_POST['atualizar'])){
@@ -28,7 +30,7 @@ if(isset($_POST['atualizar'])){
   // Somente depois do processo de upload(se necessário), chamaremos a função de atualizarPost
 
 
-  // atualizarProduto($conexao, $idPost, $titulo, $texto, $resumo, $imagem );
+  // atualizarUmProduto( $conexao, $idPost, $nome, $preco,$quantidade, $descricao, $imagem, $fabricanteID );
   
   
   header("location:posts.php");
@@ -44,7 +46,7 @@ if(isset($_POST['atualizar'])){
         
     <div class="form-group">
           <label for="titulo">Nome Produto:</label>
-          <input class="form-control" required type="text" id="nproduto" name="nproduto" >
+          <input value="<?=$oneProduto['nome_produto']?>" class="form-control" required type="text" id="nproduto" name="nproduto" >
         </div>
 
         <div class="form-group">
