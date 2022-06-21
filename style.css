@@ -22,6 +22,7 @@ body{
     padding: 2px;
     min-height: 100vh;
     flex-direction: column;
+    color: black;
 }
 
 a{
@@ -29,7 +30,7 @@ a{
     font-weight: bold;
 }
 
-h1 a{
+h1{
     font-size: 2rem;
     text-transform: uppercase;
     text-decoration: none;
@@ -41,7 +42,7 @@ h1 a{
 
 }
 
-h1 a:hover{
+h1:hover{
     font-size: 2rem;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -58,7 +59,8 @@ header{
     top: 0;
     border-radius: 3px;
     z-index: 1000;
-    border-bottom: 1px solid orange;
+    border: none;
+    box-shadow: 10px;
 }
 .container-nav{
     display: flex;
@@ -66,7 +68,7 @@ header{
     justify-content: space-between;
     align-items: center;
     background-color: #ffffff;
-    height: 12vh;
+    height: 9vh;
 }
 
 nav h2{
@@ -93,10 +95,11 @@ main{
     display: none;
     margin: 0;
     padding: 0;
+    transform: translateX(-50px ease);
 }
 
 .links-menu a{
-    color: #23232e;
+    color: orange;
     height: 40px;
 }
 
@@ -105,6 +108,7 @@ main{
     font-weight: bolder;
     transition: .2s ease-in;
     font-size: 1.5rem;
+    text-decoration: none;
 }
 
 .links-menu li{
@@ -123,8 +127,10 @@ main{
     width: 70vw ;
     height: 591px;
     background-color: #eee;
-    transition: 1s;
-    top: 80px;
+    transition: 5s;
+    top: 49px;
+    box-shadow: 100px 4px 15px 2px rgba(0, 0, 0, 0.568);
+    
     
 }
 .qqq{
@@ -360,13 +366,72 @@ h3{
 
 
 /* Inicio login php */
-#form-cont{
-    background-color: #ff7800;
-}
+
 
 /* Fim CSS Login PHP */
+/* Começo CSS Cadastro */
+
+#formu-cont{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    border: 1px solid #ffa500;
+    padding: 10px;
+    border-top: none;
+    /* background-color: #9e3ffd !important; */
+}
+
+#cadastro-cliente{
+    width: 100%;
+    background-color: #eee;
+    padding: 10px;
+}
+
+.campos-cad{
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: #eee;
+    justify-content: space-between;
+}
+
+.campos-cad .sex{
+    display: flex;
+    align-items: center;
+}
+
+input:focus{
+    border: #9e3ffd;
+}
+
+.campos-cad input{
+    border: 1px solid rgba(0, 0, 0, 0.676);
+    height: 30px;
+    border-radius: 4px;
+}
+
+.campos-cad #localizar-cep{
+    width: 30%;
+    margin-top: 4px;
+    height: 30px;
+
+}
+
+.cadastro-buto{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    height: 50px;
+    padding: 10px;
+    border: 1px solid orange;
+}
 
 
+/* Fim CSS */
 .carrinho-cont{
     /* border: 1px solid black; */
     display: flex;
@@ -401,18 +466,23 @@ h3{
 }
 
 footer{
-    background-color: #23232e;
+    margin-top: 20px;
+    border-top: 1px solid #ff7800;
     width: 100%;
-    height: 300px;
+    height: 200px;
+    /* display: none; */
 }
 @media screen and (min-width: 750px) {
     .container-nav{
         justify-content: space-around;
         flex-direction: row;
+        align-items: center;
     }
     .links-menu{
         display: flex;
+        flex-direction: flex-end;
         justify-content: space-between;
+        align-items: center;
         
     }
     nav h2{

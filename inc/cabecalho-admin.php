@@ -1,6 +1,6 @@
 <?php
-require "funcoes-sessao.php";
-verificaAcesso();
+// require "funcoes-sessao.php";
+// verificaAcesso();
 
 //Detectar quando o sair e acionado
 if(isset($_GET['sair'])){

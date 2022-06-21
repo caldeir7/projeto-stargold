@@ -3,7 +3,7 @@ require "conecta.php";
 
 /* Usada em produt-insere.php */
 function inserirProduto(mysqli $conexao, string $nome, int $preco, int $quantidade, string $descricao ,$imagem, int $fabricanteID){
-    $sql = "INSERT INTO produtos(produtos.nome_produto, produtos.preco_produto, produtos.quantidade, produtos.descricao, produtos.imagem, fabricante_id) VALUES('$nome', '$preco', '$quantidade', '$descricao','$imagem', '$fabricanteID')";
+    $sql = "INSERT INTO produtos(produtos.nome_produto, produtos.preco_produto, produtos.quantidade, produtos.descricao, produtos.urlimagem, fabricante_id) VALUES('$nome', '$preco', '$quantidade', '$descricao','$imagem', '$fabricanteID')";
     
     mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 } // fim inserirPost
@@ -12,7 +12,7 @@ function inserirProduto(mysqli $conexao, string $nome, int $preco, int $quantida
 //Usada em index.php
 function lerProdutoLimit(mysqli $conexao):array {
     // Se o tipo de usuario for admin
-        $sql = "SELECT produtos.id, produtos.nome_produto AS produto , produtos.preco_produto, produtos.quantidade, produtos.descricao, produtos.imagem, fabricantes.nome AS fabricante from produtos INNER JOIN fabricantes ON produtos.fabricante_id = fabricantes.id LIMIT 4  ";
+        $sql = "SELECT ";
         
     
     $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
@@ -29,7 +29,7 @@ function lerProdutoLimit(mysqli $conexao):array {
 /* Usada em produto.php */
 function lerProduto(mysqli $conexao):array {
     // Se o tipo de usuario for admin
-        $sql = "SELECT produtos.id, produtos.nome_produto AS produto , produtos.preco_produto, produtos.quantidade, produtos.descricao, produtos.imagem, fabricantes.nome AS fabricante from produtos INNER JOIN fabricantes ON produtos.fabricante_id = fabricantes.id ";
+        $sql = "";
         
     
     $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
@@ -42,8 +42,8 @@ function lerProduto(mysqli $conexao):array {
 
 
 /* Usada em post-atualiza.php */
-function lerUmProduto( $conexao, $idProduto) {    
-    $sql = "SELECT id, nome_produto, preco_produto, quantidade, descricao, imagem, fabricante_id FROM produtos WHERE id = $idProduto";
+function lerUmProduto( $conexao) {    
+    $sql = "";
 
 	$query = mysqli_query($conexao, $sql);
     return $query;
@@ -114,7 +114,7 @@ function formataData(string $data):string{
 
 /* Usada em index.php */
 function lerTodosOsProdutos(mysqli $conexao):array {
-    $sql = "SELECT id, nome_produto, preco_produto, quantidade, descricao, imagem FROM produtos";
+    $sql = "";
     
     $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
     $produtos = [];

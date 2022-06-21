@@ -76,7 +76,7 @@ require "inc/cabecalho.php";
                     <div class="iconss"><i class="fa fa-quote-right"></i></div>
             
                     <div class="info">
-                        <p>​Perfeito agora! Adorei o atendimento, o respeito e a solução dos problemas com vocês... Esse já é o segundo acordo com vocês, e o atendimento é espetacular!</p>
+                        <p>​ </p>
                     </div>
                 </div>
                 <div class="name">
@@ -96,7 +96,7 @@ require "inc/cabecalho.php";
             
                     <div class="info">
                         <p>
-                            Gostaria de parabenizar a todos que fazem parte da equipe “RenovaCred” pelo excelente atendimento  em todas as etapas do processo de parametrização para a limpeza do meu nome. Sou muito grato pelo atendimento,  estou muito feliz com o atendimento desse time maravilhoso de profissionais competentes
+                           
                         </p>
                     </div>
                 </div>
@@ -116,7 +116,7 @@ require "inc/cabecalho.php";
                     <div class="iconss"><i class="fa fa-quote-right"></i></div>
             
                     <div class="info">
-                        <p>Empresa flexível que atende as necessidades do cliente.   Parabéns pela serviço oferecido e vida longa e próspera para a equipe RenovaCred.</p>
+                        <p></p>
                     </div>
                 </div>
                 <div class="name">

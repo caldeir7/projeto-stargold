@@ -1,8 +1,8 @@
 <?php
 
-require "../inc/funcoes-sessao.php";
-require "../inc/funcoes-posts.php";
-verificaAcesso();
+// require "../inc/funcoes-sessao.php";
+// require "../inc/funcoes-posts.php";
+// verificaAcesso();
 
 $IDusuarioLogado = $_SESSION['id'];
 $tipodeUsuariologado = $_SESSION['tipo'];

@@ -1,8 +1,8 @@
 <?php 
 require "../inc/cabecalho-admin.php";
-require "../inc/funcoes-usuarios.php";
+// require "../inc/funcoes-usuarios.php";
 // variavel session['id'] inves da variavel que vem no parametro da url chamada QUERYSTRING 
-$dados = lerUmUsuario($conexao, $_SESSION['id']);
+// $dados = lerUmUsuario($conexao, $_SESSION['id']);
 
 if(isset($_POST['atualizar'])){
 
