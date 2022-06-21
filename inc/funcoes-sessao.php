@@ -24,12 +24,11 @@ function verificaAcesso(){
 
 
 //Entrada login.php
-function login(int $id, string $nome, string $email, string $tipo){
+function loginAdmin(int $id, string $nome, string $email){
     //Criando Variaveis de sessão ao logar
     $_SESSION['id'] = $id;
     $_SESSION['nome'] = $nome;
     $_SESSION['email'] = $email;
-    $_SESSION['tipo'] = $tipo;
 
 }
 
@@ -46,7 +45,7 @@ function logout(){
 
 //função verificaAcessoAdmin
 function verificaAcessoAdmin(){
-    if($_SESSION['tipo'] != 'admin'){
+    if($_SESSION['email'] != 'stargoldadmin@yahoo.com'){
         //redireciona para a página não autorizada
         header("location:nao-autorizado.php");
         die();

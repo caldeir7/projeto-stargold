@@ -2,17 +2,20 @@
 require "conecta.php";
 
 /* Usada em produt-insere.php */
-function inserirProduto(mysqli $conexao, string $nome, int $preco, int $quantidade, string $descricao ,$imagem, int $fabricanteID){
-    $sql = "INSERT INTO produtos(produtos.nome_produto, produtos.preco_produto, produtos.quantidade, produtos.descricao, produtos.urlimagem, fabricante_id) VALUES('$nome', '$preco', '$quantidade', '$descricao','$imagem', '$fabricanteID')";
+function inserirProduto(mysqli $conexao, string $nome, int $preco, int $quantidade, string $descricao ,string $imagem,  $fabricanteID){
+    $sql = "INSERT INTO produtos( nome_produto, preco_produto, quantidade,descricao, urlimagem, fabricantes_id) VALUES('$nome', $preco, $quantidade, '$descricao', '$imagem', $fabricanteID)";
     
     mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+
 } // fim inserirPost
 
 
 //Usada em index.php
-function lerProdutoLimit(mysqli $conexao):array {
+function lerProdutoLimit(mysqli $conexao, ):array {
     // Se o tipo de usuario for admin
-        $sql = "SELECT ";
+    $fabricanteId = rand(1,4);
+
+    $sql = "SELECT id, nome_produto, preco_produto, descricao, urlimagem FROM produtos WHERE fabricantes_id =$fabricanteId LIMIT 4";
         
     
     $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
@@ -26,10 +29,10 @@ function lerProdutoLimit(mysqli $conexao):array {
 //Fim função produto limt
 
 
-/* Usada em produto.php */
+/* Usada em produtos.php */
 function lerProduto(mysqli $conexao):array {
     // Se o tipo de usuario for admin
-        $sql = "";
+        $sql = "SELECT id,nome_produto AS produto, preco_produto, quantidade, descricao, urlimagem, fabricantes_id FROM produtos";
         
     
     $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
@@ -42,8 +45,8 @@ function lerProduto(mysqli $conexao):array {
 
 
 /* Usada em post-atualiza.php */
-function lerUmProduto( $conexao) {    
-    $sql = "";
+function lerUmProduto( $conexao, $id) {    
+    $sql = "SELECT id, nome_produto, preco_produto, descricao, quantidade, urlimagem, fabricante_id FROM produtos WHERE id = $id";
 
 	$query = mysqli_query($conexao, $sql);
     return $query;
@@ -53,11 +56,8 @@ function lerUmProduto( $conexao) {
 
 /* Usada em post-atualiza.php */
 function atualizarPost(mysqli $conexao, int $idPost, int $idUsuarioLogado, string $tipodeUsuariologado, string $titulo, string $texto, string $resumo, string $imagem){
-    if($tipodeUsuariologado == 'admin'){
-        $sql = "UPDATE posts SET titulo = '$titulo', texto = '$texto', resumo = '$resumo', imagem = '$imagem' WHERE id = $idPost ";
-    } else{
-        $sql = "UPDATE posts SET titulo = '$titulo', texto = '$texto', resumo = '$resumo', imagem = '$imagem' WHERE id = $idPost AND usuario_id = $idUsuarioLogado";
-    }
+    $sql ="";
+
     mysqli_query($conexao, $sql) or die(mysqli_error($conexao));       
 } // fim atualizarPost
 
@@ -65,11 +65,7 @@ function atualizarPost(mysqli $conexao, int $idPost, int $idUsuarioLogado, strin
 
 /* Usada em post-exclui.php */
 function excluirPost(mysqli $conexao, $idPost, $IDusuarioLogado, $tipodeUsuariologado){    
-    if($tipodeUsuariologado == 'admin'){
-        $sql = "DELETE FROM posts WHERE id = $idPost";
-    }else{
-        $sql = "DELETE FROM POSTS WHERE id = $idPost AND usuario_id = $IDusuarioLogado";
-    }
+    $sql ="";
 
 	mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 } // fim excluirPost
@@ -114,7 +110,7 @@ function formataData(string $data):string{
 
 /* Usada em index.php */
 function lerTodosOsProdutos(mysqli $conexao):array {
-    $sql = "";
+    $sql = "SELECT id, nome_produto, preco_produto, descricao, quantidade, urlimagem, fabricantes_id FROM produtos ";
     
     $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
     $produtos = [];

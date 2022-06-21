@@ -1,15 +1,6 @@
 <?php
-// require "funcoes-sessao.php";
-// verificaAcesso();
+require "funcoes-sessao.php";
 
-//Detectar quando o sair e acionado
-if(isset($_GET['sair'])){
-  //ai chama a função logout
-  logout();
-}
-
-// Guardando o nome da página atual
-$pagina = basename($_SERVER['PHP_SELF']);
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -38,9 +29,9 @@ $pagina = basename($_SERVER['PHP_SELF']);
             <li class="nav-item"><a class="nav-link" href="meu-perfil.php">Meu perfil</a></li>
             <li class="nav-item"><a class="nav-link" href="posts.php">Posts</a></li>
 
-            <?php if($_SESSION['tipo'] == 'admin'){ ?> 
+            
             <li class="nav-item"><a class="nav-link" href="usuarios.php">Usuários</a></li>
-              <?php } ?>
+            
             <li class="nav-item"><a class="nav-link" href="../index.php" target="_self">Feed</a></li>
             <li class="nav-item"><a class="nav-link" href="?sair">&times; Sair</a></li>
           </ul>
@@ -51,3 +42,4 @@ $pagina = basename($_SERVER['PHP_SELF']);
   </header>
 
   <main class="container">
+    

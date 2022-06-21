@@ -2,8 +2,9 @@
 require "../inc/funcoes-produtos.php";
 require "../inc/cabecalho-admin.php"; 
 
-$lerProdutos = lerProduto($conexao,$_SESSION['id'], $_SESSION['tipo']);
+$lerProdutos = lerProduto($conexao);
 $quantidade = count($lerProdutos);
+
 
 ?>      
     
@@ -30,8 +31,8 @@ $quantidade = count($lerProdutos);
 <?php foreach($lerProdutos as $lerProduto) { ?>
           <tr>
             <td><?=$lerProduto['produto']?></td>
-            <td id="imgggs"><?=$lerProduto['imagem']?></td>
-            <td> <?=$lerProduto['fabricante']?></td>
+            <td id="imgggs"><?=$lerProduto['urlimagem']?></td>
+            <td> <?=$lerProduto['fabricantes_id']?></td>
             <td class="text-center">
               <a class="btn btn-warning btn-sm" 
               href="produt-atualiza.php?id=<?=$lerProduto['id']?>">

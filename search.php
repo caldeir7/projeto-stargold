@@ -1,7 +1,7 @@
 <?php
-require "inc/funcoes-posts.php";
+// require "inc/funcoes-posts.php";
 require "inc/cabecalho.php";
-$termo = filter_input(INPUT_GET, 'q', FILTER_SANITIZE_SPECIAL_CHARS);
+// $termo = filter_input(INPUT_GET, 'q', FILTER_SANITIZE_SPECIAL_CHARS);
 // $resultado = buscaProduto($conexao, $termo);
 ?>
 

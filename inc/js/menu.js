@@ -10,8 +10,6 @@ botao.addEventListener("click", function(event){
     
     if ( linksMenu.classList.contains("aberto")) {
         icone.innerHTML = "<i class='fa fa-times' style='color:orange'></i>";
-    }if( linksMenu.classList.contains("aberto")){
-        shad.style.backgroundClip ="transparent"
     } else {
         icone.innerHTML = "<i class='fa fa-bars' style='color:black'></i>";
     }

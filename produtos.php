@@ -1,8 +1,12 @@
 <?php  
     require "inc/cabecalho.php";
-//     require "inc/funcoes-produtos.php";
+    require "inc/funcoes-produtos.php";
 
-// $allProdutos = lerTodosOsProdutos($conexao);
+$allProdutos = lerTodosOsProdutos($conexao);
+
+if(isset($_GET['addcart'])){
+
+}
 
 
 ?>
@@ -42,10 +46,10 @@
 
             <article class="itens">
                 <a href="" id="itens">
-                <img src="imagens/<?=$allProduto['imagem']?>" alt="">
+                <img src="imagens/<?=$allProduto['urlimagem']?>" alt="">
                 <p><?=$allProduto['nome_produto']?></p>
                 <p><?=$allProduto['preco_produto']?></p>
-                <a id="addcart" href="">Adicionar ao Carrinho</a>
+                <a id="addcart" href="carrinho.php">Adicionar ao Carrinho</a>
                 </a>
             </article>
 <?php } ?>        

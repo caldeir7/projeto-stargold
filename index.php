@@ -1,7 +1,7 @@
 <?php
 require "inc/cabecalho.php";
-// require "inc/funcoes-produtos.php";
-// $allProdutos = lerProdutoLimit($conexao);
+require "inc/funcoes-produtos.php";
+$allProdutos = lerProdutoLimit($conexao);
 // echo "<pre>";
 // var_dump($allPosts);
 // echo "</pre>";
@@ -52,8 +52,8 @@ require "inc/cabecalho.php";
 
         <article class="itens">
             <a href="" id="itens">
-              <img src="imagens/<?=$allProduto['imagem']?>" alt="">
-              <p><?=$allProduto['produto']?></p>
+              <img src="imagens/<?=$allProduto['urlimagem']?>" alt="">
+              <p><?=$allProduto['nome_produto']?></p>
               <p><?=$allProduto['preco_produto']?></p>
               <a id="addcart" href="">Adicionar ao Carrinho</a>
             </a>

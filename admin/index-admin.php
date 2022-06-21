@@ -6,15 +6,15 @@
       Ola <?=$_SESSION['nome']?>
       </h2>
       <p class="lead">Você está no <b>painel de controle e administração</b> do
-        site Microblog e seu <b>nível de acesso</b> é <span class="badge badge-info"> <?=$_SESSION['tipo']?></span>.
+        site Microblog e seu <b>nível de acesso</b> é <span class="badge badge-info"></span>.
       </p>
       <hr class="my-4">
       <p class="lead">
         <a class="btn btn-primary" href="meu-perfil.php" >Meu perfil</a>
         <a class="btn btn-primary" href="produtos.php">Gerenciar Produtos</a>
-        <?php if($_SESSION['tipo'] == 'admin'){?>
+      
         <a class="btn btn-primary" href="usuarios.php">Gerenciar Usuários</a>
-        <?php } ?>
+        
       </p>
     </article>
         

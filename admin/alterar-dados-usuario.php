@@ -1,6 +1,6 @@
 <?php 
 // require "../inc/funcoes-usuarios.php";
-require "../inc/cabecalho-admin.php";
+// require "../inc/cabecalho-admin.php";
 // verificaAcessoAdmin();
 
 $lerUsuarioS = lerUsuarios($conexao);

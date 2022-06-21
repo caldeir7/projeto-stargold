@@ -7,11 +7,10 @@ $dadosFabricantes = lerFabricantes($conexao);
 if(isset($_POST['inserir'])){
   require "../inc/funcoes-produtos.php";
   $nome = filter_input(INPUT_POST, 'nproduto', FILTER_SANITIZE_SPECIAL_CHARS);
+  $fabricanteID = filter_input(INPUT_POST,'fabricante', FILTER_SANITIZE_SPECIAL_CHARS);
   $preco = filter_input(INPUT_POST, 'preco', FILTER_SANITIZE_NUMBER_INT);
   $quantidade = filter_input(INPUT_POST, 'quantidade', FILTER_SANITIZE_NUMBER_INT);
   $descricao = filter_input(INPUT_POST, 'descricao', FILTER_SANITIZE_SPECIAL_CHARS);
-  $fabricanteID = filter_input(INPUT_POST,'fabricante', FILTER_SANITIZE_SPECIAL_CHARS);
-  
 
   //upload de imagem (blob arquivos binário .pdf .jpg. exe)
   // Obtendo dados do arquivo enviado
@@ -23,7 +22,7 @@ if(isset($_POST['inserir'])){
   //Função upload (responsavel por enviar o arquivo para o hd do servidor)
   upload($imagem);
   //Função inserirpost(atenção: mandaremos apenas o name da imagem)
-  inserirProduto($conexao, $nome, $preco, $quantidade, $descricao ,$imagem['name'], $fabricanteID);
+  inserirProduto($conexao, $nome, $preco, $quantidade, $descricao ,$imagem['name'],$fabricanteID );
   header("location:index-admin.php");
 }
 ?>
@@ -35,7 +34,7 @@ if(isset($_POST['inserir'])){
       <form enctype="multipart/form-data"  class="mx-auto w-75" action="" method="post" id="form-inserir" name="form-inserir">
 
         <div class="form-group">
-          <label for="titulo">Nome Produto:</label>
+          <label for="produto">Nome Produto:</label>
           <input class="form-control" required type="text" id="nproduto" name="nproduto" >
         </div>
 

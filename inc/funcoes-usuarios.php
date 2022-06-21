@@ -2,16 +2,22 @@
 require "conecta.php";
 
 // Função inserirUsuario: usada em usuario-insere.php
-function inserirUsuario(mysqli $conexao, string $nome,  string $email, string $senha, string $tipo){
-    $sql = "INSERT INTO usuario_admin(nome,email,senha,tipo) 
-        VALUES('$nome', '$email','$senha','$tipo')";
+function inserirUsuario(mysqli $conexao, string $nome,  string $email, string $senha){
+    $sql = "INSERT INTO usuario_admin(nome,email,senha) 
+        VALUES('$nome', '$email','$senha')";
     
     mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 }
 
-
 // fim inserirUsuario
 
+
+//função inserirCliente usada em Cadastro.php
+function inserirCliente(mysqli $conexao, $nome, $email, $cpf, $data, $nascimento, $endereco,$cep, $cidade, $telefone, $senha, $sexo){
+    $sql ="";
+}
+
+//
 
 
 // Função codificaSenha: usada em usuario-insere.php e usuario-atualiza.php :string ira devolver uma string CRIPTROGAFADA
@@ -25,7 +31,7 @@ function codificaSenha(string $senha):string{
 
 // Função lerUsuarios: usada em usuarios.php
 function lerUsuarios(mysqli $conexao):array{
-        $sql = "SELECT id, nome, email, tipo FROM usuario_admin ORDER BY nome";
+        $sql = "SELECT id, nome, email, senha FROM usuario_admin";
 
         $query = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 
@@ -44,7 +50,7 @@ function lerUsuarios(mysqli $conexao):array{
 
 // Função excluirUsuario: usada em usuario-exclui.php
 function excluirUsuario(mysqli $conexao, int $id){
-        $sql= "DELETE FROM clientes WHERE id= $id";
+        $sql= "";
         //Chamando a função que ira retorna os dados de um fabricante
         mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
     
@@ -57,7 +63,7 @@ function excluirUsuario(mysqli $conexao, int $id){
 
 // Função lerUmUsuario: usada em usuario-atualiza.php
 function lerUmUsuario(mysqli $conexao, int $id):array{
-    $sql = "SELECT id, nome, email, tipo, senha FROM usuario_admin WHERE id = $id";
+    $sql = "";
     
     $query = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 
@@ -90,7 +96,7 @@ function verificaSenha(string $senhaFormulario, string $senhaBanco):string{
 
 // Função atualizarUsuario: usada em usuario-atualiza.php
 function atualizarUsuario(mysqli $conexao, int $id, string $nome, string $email, string $senha, string $tipo){
-    $sql= "UPDATE usuario_admin SET nome='$nome', email ='$email', senha = '$senha', tipo = '$tipo' WHERE id = $id ";
+    $sql= "";
 
    mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 }
@@ -101,8 +107,8 @@ function atualizarUsuario(mysqli $conexao, int $id, string $nome, string $email,
 
 
 // Função buscarUsuario: usada em login.php
-function buscarUsuario(mysqli $conexao, string $email){
-    $sql = "SELECT id, nome, email, tipo, senha FROM usuario_admin WHERE email = '$email' ";
+function buscarUsuarioAdmin(mysqli $conexao, string $email){
+    $sql = "SELECT id, nome, email, senha FROM usuario_admin WHERE email = '$email' ";
 
     $query = mysqli_query($conexao, $sql);
 
@@ -114,7 +120,9 @@ function buscarUsuario(mysqli $conexao, string $email){
 // fim buscarUsuario
 
 //Função Busca Cliente
-
+function buscaCliente($conexao){
+    $sql ="";
+}
 //Fim Função Busca Cliente
 
 

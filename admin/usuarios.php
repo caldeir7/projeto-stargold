@@ -1,5 +1,5 @@
 <?php 
-// require "../inc/funcoes-usuarios.php";
+require "../inc/funcoes-usuarios.php";
 require "../inc/cabecalho-admin.php"; 
 // verificaAcessoAdmin();
 
@@ -36,7 +36,7 @@ $quantidade = count($lerUsuarioS);
 					<tr>
 						<td><?=$lerUsuario['nome']?></td>
 						<td><?=$lerUsuario['email']?></td>
-						<td><?=$lerUsuario['tipo']?> </td>
+						<td></td>
 						<td class="text-center">
 							<a class="btn btn-warning btn-sm" 
 							href="usuario-atualiza.php?id=<?=$lerUsuario['id']?>">

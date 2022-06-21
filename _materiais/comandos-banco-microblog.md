@@ -7,16 +7,16 @@ CREATE DATABASE progweb_microblog_guilhermes CHARACTER SET "utf8mb4";
 CREATE TABLE clientes(
 	id SMALLINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	cliente_nome VARCHAR(45) NOT NULL,
-    cliente_endereco VARCHAR(100) NOT NULL,
-    cliente_cidade VARCHAR(45) NOT NULL,
-    cliente_cep VARCHAR(45) NOT NULL,
-    cliente_telefone VARCHAR(14) NOT NULL,
-    cliente_email VARCHAR(40) NOT NULL UNIQUE,
-    cliente_cpf VARCHAR(15) NOT NULL UNIQUE,
-  	senha VARCHAR(255) NOT NULL,
+  cliente_email VARCHAR(40) NOT NULL UNIQUE,
+  cliente_cpf VARCHAR(15) NOT NULL UNIQUE,
+  cliente_nascimento VARCHAR(45) NOT NULL,
+  cliente_endereco VARCHAR(100) NOT NULL,
+  cliente_cidade VARCHAR(45) NOT NULL,
+  cliente_cep VARCHAR(45) NOT NULL,
+  cliente_telefone VARCHAR(14) NOT NULL,
+  senha VARCHAR(255) NOT NULL,
 	cliente_sexo ENUM('masculino','feminino') NOT NULL,
-    cliente_nascimento VARCHAR(45) NOT NULL,
-    pedidos_idpedido INT NOT NULL
+  pedidos_idpedido INT NOT NULL
 )
 
 ## 3) Criar tabela de pedidos

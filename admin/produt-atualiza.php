@@ -1,7 +1,7 @@
 <?php
 require "../inc/cabecalho-admin.php"; 
-// require "../inc/funcoes-produtos.php";
-// require "../inc/funcoes-fabricantes.php";
+require "../inc/funcoes-produtos.php";
+require "../inc/funcoes-fabricantes.php";
 $dadosFabricantes = lerFabricantes($conexao);
 // $posts = lerPosts($conexao, $_SESSION['id'], $_SESSION['tipo']);
 
