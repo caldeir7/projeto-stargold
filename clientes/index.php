@@ -1,6 +1,7 @@
 <?php
-require "inc/cabecalho.php";
-require "inc/funcoes-produtos.php";
+require "../inc/funcoes-sessao.php";
+require "../inc/cabecalho.php";
+require "../inc/funcoes-produtos.php";
 $allProdutos = lerProdutoLimit($conexao);
 // echo "<pre>";
 // var_dump($allPosts);
@@ -9,24 +10,13 @@ $allProdutos = lerProdutoLimit($conexao);
     <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active" data-interval="10000">
-
-                <picture>
-                        <source srcset="imagens/banner-mobile-bem-vindo.png" media="(max-width: 600px)">
-                        <img src="imagens/banner-pc-bem-vindo.png" class="d-block w-100" alt="...">
-                </picture>
+                <img src="../imagens/banner-pc-bem-vindo.png" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item" data-interval="2000">
-
-            <picture>
-                    <source srcset="imagens/banner-mobile-aliancas.png" media="(max-width: 600px)">
-                    <img src="imagens/banner-pc-aliancas.png" class="d-block w-100" alt="...">
-                </picture>
+                <img src="../imagens/banner-pc-aliancas.png" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <picture>
-                    <source srcset="imagens/banner-mobile-relogios.png" media="(max-width: 600px)">
-                    <img src="imagens/banner-pc-relogios.png" class="d-block w-100" alt="...">
-                </picture>
+                <img src="../imagens/banner-pc-relogios.png" class="d-block w-100" alt="...">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-target="#carouselExampleInterval" data-slide="prev">
@@ -42,15 +32,15 @@ $allProdutos = lerProdutoLimit($conexao);
     <h3>Vantagens de comprar na StarGold</h3>
     <section id="entrega-rapidas">
         <aside>
-            <img src="imagens/icones/entrega-rapida.png" alt="">
+            <img src="../imagens/icones/entrega-rapida.png" alt="">
             <p>ENVIAMOS para todo o brasil!</p>
         </aside>
         <aside>
-            <img src="imagens/icones/seguro.png" alt="">
+            <img src="../imagens/icones/seguro.png" alt="">
             <p>100% SEGURO Certificado SSL</p>
         </aside>
         <aside>
-            <img src="imagens/icones/cartao-do-banco.png" alt="">
+            <img src="../imagens/icones/cartao-do-banco.png" alt="">
             <p>Até 12X SEM Juros 10% Off no boleto</p>
         </aside>
     </section>
@@ -62,11 +52,11 @@ $allProdutos = lerProdutoLimit($conexao);
 <?php foreach ($allProdutos as $allProduto) { ?>
 
         <article class="itens">
-            <a href="" id="itens">
+            <a href="produt-detalhe.php?id=<?=$allProduto['id']?>" id="itens">
               <img src="imagens/<?=$allProduto['urlimagem']?>" alt="">
               <p><?=$allProduto['nome_produto']?></p>
               <p><?=$allProduto['preco_produto']?></p>
-              <a id="addcart" href="">Adicionar ao Carrinho</a>
+              <a id="addcart" href="carrinho.php?addcart=<?=$allProduto['id']?>">Adicionar ao Carrinho</a>
             </a>
         </article>
 <?php } ?>        
@@ -140,4 +130,4 @@ $allProdutos = lerProdutoLimit($conexao);
 
     </section>
 
-<?php require "inc/rodape.php"; ?>
+<?php require "rodape.php"; ?>

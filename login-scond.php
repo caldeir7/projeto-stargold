@@ -1,4 +1,4 @@
-<?php 
+<?php
 require "inc/funcoes-sessao.php";
 require "inc/cabecalho.php";
 
@@ -28,7 +28,7 @@ if(isset($_POST['entrar'])){
       //4) [IF/ELSE] Se as senhas forem iguais a do banco de dados
       if(password_verify($senha, $usuario['senha'])){
         //4) Então inicia o login para área administrativa
-        loginCliente($usuario['id'], $usuario['cliente_nome'], $usuario['cliente_email']);
+        loginCliente($usuario['id'], $usuario['cliente_nome'], $usuario['email']);
         header("location:clientes/index.php");
       } else {
         //4) Se a senha estiver errada redireciona para login e cria um parametro indicando  que a sneha esta incorreta
@@ -40,8 +40,8 @@ if(isset($_POST['entrar'])){
     }
   }
 }
-?>
 
+?>
 
 <div id="formu-cont-login">
   <form action="" method="post" id="login" name="">

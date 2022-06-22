@@ -33,6 +33,13 @@ function loginAdmin(int $id, string $nome, string $email){
 }
 
 
+function loginCliente(int $id, string $nome, string $email){
+
+    $_SESSION['id'] = $id;
+    $_SESSION['nome'] = $nome;
+    $_SESSION['email'] = $email;
+}
+
 //Saidas nas páginas administrativas quando clicamos em sair
 function logout(){
     // Destruindo variaveis de sessao ao sair
@@ -45,7 +52,7 @@ function logout(){
 
 //função verificaAcessoAdmin
 function verificaAcessoAdmin(){
-    if($_SESSION['email'] != 'stargoldadmin@yahoo.com'){
+    if($_SESSION['email'] != 'goldamin@yahoo.com'){
         //redireciona para a página não autorizada
         header("location:nao-autorizado.php");
         die();

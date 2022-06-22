@@ -1,3 +1,7 @@
+<?php
+ob_start();
+ 
+?>
 <!doctype html>
 <html lang="pt-br">
 
@@ -40,8 +44,12 @@
             <li><a href="index.php">Home</a></li>
             <li><a href="produtos.php">Produtos</a></li>
             <li><a href="categorias.php">Categorias</a></li>
-            <li><a href="login.php">Login</a></li>   
-              
+            <?php if(!isset($_SESSION['id'])){  ?>
+              <li><a href="login.php">Login</a></li> 
+            <?php }?>
+            <?php if(isset($_SESSION['id'])){?>
+            <li><a href="login.php">Sair</a></li> 
+            <?php } ?>
           </ul>
       </nav>
     </div>

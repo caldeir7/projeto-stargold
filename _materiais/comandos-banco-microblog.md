@@ -31,3 +31,11 @@ CREATE TABLE pedidos(
 ALTER TABLE posts 
   ADD CONSTRAINT fk_posts_usuarios 
   FOREIGN KEY (usuario_id) REFERENCES usuarios(id); 
+
+
+
+
+
+## Cadastro
+
+INSERT INTO clientes(cliente_nome,cliente_email,cliente_cpf,cliente_nascimento,cliente_endereco,cliente_cidade,cliente_cep,cliente_telefone,senha,cliente_sexo) VALUES("GUILHERME","gordo@yahoo.com", "49688115860", "27/10/2000", "Senac Penha", "São Paulo", "03737140", "11982363556", "123456", "masculino");

@@ -13,7 +13,7 @@ function inserirProduto(mysqli $conexao, string $nome, int $preco, int $quantida
 //Usada em index.php
 function lerProdutoLimit(mysqli $conexao, ):array {
     // Se o tipo de usuario for admin
-    $fabricanteId = rand(1,4);
+    $fabricanteId = rand(1,2);
 
     $sql = "SELECT id, nome_produto, preco_produto, descricao, urlimagem FROM produtos WHERE fabricantes_id =$fabricanteId LIMIT 4";
         
@@ -123,8 +123,8 @@ function lerTodosOsProdutos(mysqli $conexao):array {
 
 
 /* Usada em post-detalhe.php */
-function lerDetalhes(mysqli $conexao, $idPost):array {    
-    $sql = "SELECT  posts.data, posts.titulo,posts.texto, posts.resumo, posts.imagem, usuarios.nome AS autor from posts INNER JOIN usuarios ON posts.usuario_id = usuarios.id WHERE posts.id = $idPost ";
+function lerDetalhes(mysqli $conexao, $idProduto):array {    
+    $sql = "SELECT  produtos.id, produtos.nome_produto AS produto, produtos.preco_produto,produtos.quantidade, produtos.descricao, produtos.urlimagem, fabricantes.nome AS fabricante from produtos INNER JOIN fabricantes ON produtos.fabricantes_id = fabricantes.id WHERE produtos.id = $idProduto";
 
     $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 
@@ -144,3 +144,9 @@ function buscaProduto(mysqli $conexao, string $termo):array {
     }
     return $posts; 
 } // fim busca
+
+
+// função carrinho.php
+    
+
+// fim função

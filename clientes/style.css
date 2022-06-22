@@ -125,11 +125,10 @@ main{
     justify-content: space-evenly;
     align-items: center;
     width: 70vw ;
-    height: 700px;
+    height: 800px;
     background-color: #eee;
     transition: 5s;
     top: 70px;
-    /* box-shadow: 100px 4px 15px 2px rgba(0, 0, 0, 0.568); */
     
     
 }

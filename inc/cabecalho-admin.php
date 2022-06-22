@@ -1,5 +1,6 @@
 <?php
 require "funcoes-sessao.php";
+verificaAcessoAdmin();
 
 ?>
 <!doctype html>

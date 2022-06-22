@@ -14,8 +14,13 @@ function inserirUsuario(mysqli $conexao, string $nome,  string $email, string $s
 
 //função inserirCliente usada em Cadastro.php
 function inserirCliente(mysqli $conexao, $nome, $email, $cpf, $data, $nascimento, $endereco,$cep, $cidade, $telefone, $senha, $sexo){
-    $sql ="";
+    $sql ="INSERT INTO clientes(cliente_nome,cliente_email,cliente_cpf,cliente_nascimento,cliente_endereco,cliente_cidade,cliente_cep,cliente_telefone,senha,cliente_sexo) VALUES('$nome','$email', '$cpf', '$nascimento', '$endereco', '$cidade', '$cep', '$telefone', '$senha', '$sexo');";
+
+    mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 }
+
+//
+//
 
 //
 
@@ -119,9 +124,14 @@ function buscarUsuarioAdmin(mysqli $conexao, string $email){
 }
 // fim buscarUsuario
 
-//Função Busca Cliente
-function buscaCliente($conexao){
-    $sql ="";
+//Função Busca login.php
+function buscaCliente(mysqli $conexao, string $email){
+    $sql ="SELECT id, cliente_nome,cliente_email, senha FROM clientes WHERE cliente_email = '$email'";
+
+    $query = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+    
+    return mysqli_fetch_assoc($query);
+    
 }
 //Fim Função Busca Cliente
 
