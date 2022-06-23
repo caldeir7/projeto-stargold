@@ -1,5 +1,5 @@
 <?php
-    require "../inc/cabecalho.php"; 
+    require "cabecalho.php"; 
     $carrinho = filter_input(INPUT_GET, "addcart", FILTER_SANITIZE_NUMBER_INT);
 ?>
 

@@ -1,6 +1,10 @@
 <?php
 require "funcoes-sessao.php";
 verificaAcessoAdmin();
+if(isset($_GET['sair'])){
+  //ai chama a função logout
+  logout();
+}
 
 ?>
 <!doctype html>

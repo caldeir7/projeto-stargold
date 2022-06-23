@@ -1,5 +1,5 @@
 <?php
-require "../inc/cabecalho.php";
+require "cabecalho.php";
 require "../inc/funcoes-produtos.php";
 $idProduto = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
 

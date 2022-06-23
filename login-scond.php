@@ -20,7 +20,7 @@ if(isset($_POST['entrar'])){
     $senha = $_POST['senha'];
 
     // Verificar no banco se existe alguém com o email informado 
-    $usuario = buscaCliente($conexao, $email);
+    $usuario = buscarUsuarioAdmin($conexao, $email);
 
     //3) [ IF/ELSE ] Se for Diferente de Nulo é pq tem usuário
     
@@ -28,8 +28,8 @@ if(isset($_POST['entrar'])){
       //4) [IF/ELSE] Se as senhas forem iguais a do banco de dados
       if(password_verify($senha, $usuario['senha'])){
         //4) Então inicia o login para área administrativa
-        loginCliente($usuario['id'], $usuario['cliente_nome'], $usuario['email']);
-        header("location:clientes/index.php");
+        loginCliente($usuario['id'], $usuario['nome'], $usuario['email']);
+        header("location:admin/index.php");
       } else {
         //4) Se a senha estiver errada redireciona para login e cria um parametro indicando  que a sneha esta incorreta
         header("location:login.php?senha_incorreta");

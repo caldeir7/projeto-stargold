@@ -1,7 +1,6 @@
 <?php  
-    require "../inc/cabecalho.php";
+    require "cabecalho.php";
     require "../inc/funcoes-produtos.php";
-    require "../inc/funcoes-sessao.php";
     
 
 $allProdutos = lerTodosOsProdutos($conexao);

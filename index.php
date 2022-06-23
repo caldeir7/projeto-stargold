@@ -1,30 +1,35 @@
 <?php
 require "inc/cabecalho.php";
 require "inc/funcoes-produtos.php";
+require "inc/funcoes-fabricantes.php";
+
+$lerUmFabri = lerUmFabricante($conexao);
+
 $allProdutos = lerProdutoLimit($conexao);
 // echo "<pre>";
 // var_dump($allPosts);
 // echo "</pre>";
+
+
 ?>
     <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active" data-interval="10000">
-
                 <picture>
-                        <source srcset="imagens/banner-mobile-bem-vindo.png" media="(max-width: 600px)">
-                        <img src="imagens/banner-pc-bem-vindo.png" class="d-block w-100" alt="...">
+                    <source srcset="imagens/banner-mobile-bem-vindo.png" media="(max-width: 700px)">
+                    <img src="imagens/banner-pc-bem-vindo.png" class="d-block w-100" alt="...">
                 </picture>
             </div>
             <div class="carousel-item" data-interval="2000">
 
-            <picture>
-                    <source srcset="imagens/banner-mobile-aliancas.png" media="(max-width: 600px)">
+                <picture>
+                    <source srcset="imagens/banner-mobile-aliancas.png" media="(max-width: 700px)">
                     <img src="imagens/banner-pc-aliancas.png" class="d-block w-100" alt="...">
                 </picture>
             </div>
             <div class="carousel-item">
                 <picture>
-                    <source srcset="imagens/banner-mobile-relogios.png" media="(max-width: 600px)">
+                    <source srcset="imagens/banner-mobile-relogios.png" media="(max-width: 700px)">
                     <img src="imagens/banner-pc-relogios.png" class="d-block w-100" alt="...">
                 </picture>
             </div>
@@ -71,6 +76,33 @@ $allProdutos = lerProdutoLimit($conexao);
         </article>
 <?php } ?>        
       </article>
+
+
+    <section id="wapper-info">
+        <article id="container-chamativo">
+            <aside id="chamativos">
+                <div>
+                    <a href="categorias.php"><img src="imagens/banner-categoria-aliancas.png" alt=""></a>
+                </div>
+                <p>Alianças Exlusivas que você só encontra aqui! Presenteie quem você ama com as Alianças da <strong>StarGold.</strong></p>
+            </aside>
+            <aside id="chamativos-2">
+                <div>
+                    <img src="imagens/banner-categoria-mobile-relogios.png" alt="">
+                </div>
+                <p>Alianças Exlusivas que você só encontra aqui! Presenteie quem você ama com as Alianças da <strong>StarGold.</strong></p>
+            </aside>
+            <aside id="chamativos">
+                <div>
+                    <img src="imagens/banner-categoria-colares.png" alt="">
+                </div>
+                <p>Alianças Exlusivas que você só encontra aqui! Presenteie quem você ama com as Alianças da <strong>StarGold.</strong></p>
+            </aside>
+            
+            
+        </article>
+    </section>
+      
         
         
 

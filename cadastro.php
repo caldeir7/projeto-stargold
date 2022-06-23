@@ -14,7 +14,7 @@ if(isset($_POST['cadastro'])){
     $sexo = filter_input(INPUT_POST, 'sexo', FILTER_SANITIZE_SPECIAL_CHARS);
 
     inserirCliente($conexao, $nome, $email, $cpf, $data, $nascimento, $endereco,$cep, $cidade, $telefone, $senha, $sexo);
-    header("location:index.php");
+    header("location:clientes/index.php");
 }
 ?>
 

@@ -13,7 +13,7 @@ function inserirProduto(mysqli $conexao, string $nome, int $preco, int $quantida
 //Usada em index.php
 function lerProdutoLimit(mysqli $conexao, ):array {
     // Se o tipo de usuario for admin
-    $fabricanteId = rand(1,2);
+    $fabricanteId = rand(1,3);
 
     $sql = "SELECT id, nome_produto, preco_produto, descricao, urlimagem FROM produtos WHERE fabricantes_id =$fabricanteId LIMIT 4";
         
@@ -30,9 +30,9 @@ function lerProdutoLimit(mysqli $conexao, ):array {
 
 
 /* Usada em produtos.php */
-function lerProduto(mysqli $conexao):array {
+function lerProduto(mysqli $conexao, $id):array {
     // Se o tipo de usuario for admin
-        $sql = "SELECT id,nome_produto AS produto, preco_produto, quantidade, descricao, urlimagem, fabricantes_id FROM produtos";
+        $sql = "SELECT id,nome_produto AS produto, preco_produto, quantidade, descricao, urlimagem, fabricantes_id FROM produtos WHERE id= $id";
         
     
     $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));

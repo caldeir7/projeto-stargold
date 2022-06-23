@@ -1,7 +1,14 @@
 <?php
 ob_start();
 
+require_once "../inc/funcoes-sessao.php";
+  if(isset($_GET['sair'])){
+      //ai chama a função logout
+      logout();
+  }
 
+
+$pagina = basename($_SERVER['PHP_SELF']);
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -33,7 +40,7 @@ ob_start();
           
       </div>
 
-      <h1 id="logoo"><a href="index.php">StarGold</a></h1>
+      <h1 id="logoo">StarGold</h1>
             
       <nav>
           <h2><a href="" id="icons"><i class="fa fa-bars" style="color: black;"></i></a></h2>
@@ -49,7 +56,7 @@ ob_start();
               <li><a href="login.php">Login</a></li> 
             <?php }?>
             <?php if(isset($_SESSION['id'])){?>
-            <li><a href="">Sair</a></li> 
+            <li><a href="../login.php?sair">Sair</a></li> 
             <?php } ?>
           </ul>
       </nav>

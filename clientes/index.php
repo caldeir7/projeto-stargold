@@ -1,8 +1,12 @@
 <?php
 require "../inc/funcoes-sessao.php";
-require "../inc/cabecalho.php";
+require "cabecalho.php";
 require "../inc/funcoes-produtos.php";
 $allProdutos = lerProdutoLimit($conexao);
+
+
+    // Destruindo variaveis de sessao ao sair
+   
 // echo "<pre>";
 // var_dump($allPosts);
 // echo "</pre>";

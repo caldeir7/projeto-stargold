@@ -23,7 +23,7 @@ if(isset($_POST['inserir'])){
   upload($imagem);
   //Função inserirpost(atenção: mandaremos apenas o name da imagem)
   inserirProduto($conexao, $nome, $preco, $quantidade, $descricao ,$imagem['name'],$fabricanteID );
-  header("location:index-admin.php");
+  header("location:produtos.php");
 }
 ?>
        
